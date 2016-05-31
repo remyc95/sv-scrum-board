@@ -1,0 +1,210 @@
+//Colors
+$pink: #EB4C5D;
+$yellow: #C2A100;
+$lightblue: #59A7BA;
+$green: #789D33;
+$splitcolor: #97993D;
+$backcolor: #504645;
+$panelborder: #CCC5B9;
+$bodycolor: #7F5234;
+$emergency: #D03731;
+$highlight: #FFF587;
+
+//$post_it_font: "Shadows Into Light", sans-serif;
+$post_it_font: "Architects Daughter", sans-serif;
+
+//CSS
+body {
+    width: 95%;
+    margin: auto;
+    background:url('/images/bg_wall.jpg');
+    font-family: Arial;
+    
+    #main {
+    border: outset $panelborder 1.8vh;
+    background:url('/images/chalkboard2.jpg');
+    width: 97.5%;
+    height: auto;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    margin-right: 1.5%;
+    
+        #table_head {
+            border-bottom: solid $splitcolor 2vh;
+            height: auto;
+            min-height: 9vh;
+            margin: 0;
+        }
+        
+        #table_content {
+            height: auto;
+            margin: 0;
+        }
+        
+        .panel-border-right {
+            border-right: solid $splitcolor 2vh;
+        }
+        
+        .paper {
+           color: black;
+           background-color: white;
+        }
+        
+        .emergency {
+            color: white;
+            background-color: $emergency;
+        }
+        
+        .box {
+            font-weight: bold;
+            width: 100%;
+            margin: auto;
+        }
+        
+        .post_it {
+            width: 10vh;
+            min-height: 10vh;
+            height: auto;
+            margin-right: 1vh;
+            position: absolute;
+            font-size: 2vh;
+            padding: 10px;
+            font-family: $post_it_font;
+            box-shadow: 0 6px 6px -6px #777;
+        }
+        
+        .pink_post_it{
+            @extend .post_it;
+            background-color: $pink;
+        }
+        
+        .yellow_post_it{
+            @extend .post_it;
+            background-color: $yellow;
+        }
+        
+        .lightblue_post_it{
+            @extend .post_it;
+            background-color: $lightblue;
+        }
+        
+        .green_post_it{
+            @extend .post_it;
+            background-color: $green;
+        }
+        
+        .cat_box {
+            @extend .box, .paper;
+            text-align: left;
+            display: block;
+            font-size: 1.4vw;
+            padding: 1vh;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+            width: 90%;
+            box-shadow: 0 6px 6px -6px #777;
+            
+            &:hover {
+                background-color: $highlight;
+                cursor: pointer;
+            }
+    
+        }
+        
+        .title_box {
+            @extend .box;
+            text-align: center;
+            font-size: 1.5vw;
+            box-shadow: 0 6px 6px -6px #777;
+            padding-top: 1.7vh;
+            padding-bottom: 1.7vh;
+            -webkit-transform: translateY(12%);
+            -ms-transform: translateY(12%);
+            transform: translateY(12%);
+            width: 100%;
+        }
+        
+        .title_shortened {
+            width: 80%;
+        }
+        
+        .cat_note {
+            position: relative;
+            display: inline-block;
+            float: right;
+        }
+        
+        //Add post it colors
+        $colors: $pink, $yellow, $green, $lightblue, $yellow, $green, $lightblue, $yellow, $green;
+        
+        @for $i from 1 through length($colors) {
+          .cat_box-#{$i}{
+              @extend .cat_box;
+              
+              $random: random(2);
+              $rotate: random(5);
+              
+              @if $random == 1{
+                  -ms-transform: rotate($rotate + deg); /* IE 9 */
+                  -webkit-transform: rotate($rotate + deg); /* Chrome, Safari, Opera */
+                  transform: rotate($rotate + deg);
+              }
+              @else {
+                  -ms-transform: rotate(-$rotate + deg); /* IE 9 */
+                  -webkit-transform: rotate(-$rotate + deg); /* Chrome, Safari, Opera */
+                  transform: rotate(-$rotate + deg);
+              }
+          }
+          
+          .cat_note-#{$i} { 
+              @extend .cat_note;
+              
+              background-color: nth($colors, $i);
+              width: random(3) + 2vh;
+              height: random(1) + 2vh;
+              
+              $random: random(2);
+              $rotate: random(10);
+              
+              @if $random == 1{
+                  -ms-transform: rotate($rotate + deg); /* IE 9 */
+                  -webkit-transform: rotate($rotate + deg); /* Chrome, Safari, Opera */
+                  transform: rotate($rotate + deg);
+              }
+              @else {
+                  -ms-transform: rotate(-$rotate + deg); /* IE 9 */
+                  -webkit-transform: rotate(-$rotate + deg); /* Chrome, Safari, Opera */
+                  transform: rotate(-$rotate + deg);
+              }
+          }
+        }
+        
+        .cat_note-9 {
+            position:absolute;
+            top: 5vh;
+        }
+        
+        //Rotate titles
+        @for $i from 1 through 5 {
+          .title_box-#{$i}{
+              @extend .title_box;
+              
+              $random: random(2);
+              $rotate: random(2);
+              
+              @if $random == 1{
+                  -ms-transform: rotate($rotate + deg); /* IE 9 */
+                  -webkit-transform: rotate($rotate + deg); /* Chrome, Safari, Opera */
+                  transform: rotate($rotate + deg);
+              }
+              @else {
+                  -ms-transform: rotate(-$rotate + deg); /* IE 9 */
+                  -webkit-transform: rotate(-$rotate + deg); /* Chrome, Safari, Opera */
+                  transform: rotate(-$rotate + deg);
+              }
+          }
+        }
+        
+    }
+    
+}
