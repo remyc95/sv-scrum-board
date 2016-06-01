@@ -3,12 +3,14 @@ $pink: #EB4C5D;
 $yellow: #C2A100;
 $lightblue: #59A7BA;
 $green: #789D33;
+$grass: #43A047;
 $splitcolor: #97993D;
 $backcolor: #504645;
 $panelborder: #CCC5B9;
 $bodycolor: #7F5234;
 $emergency: #D03731;
 $highlight: #FFF587;
+$gray: #D4D4D4;
 
 //$post_it_font: "Shadows Into Light", sans-serif;
 $post_it_font: "Architects Daughter", sans-serif;
@@ -20,6 +22,15 @@ body {
     background:url('/images/bg_wall.jpg');
     font-family: Arial;
     
+    #trash {
+    width: 10vh; 
+    height: 10vh; 
+    position: fixed;
+    z-index: 1;
+    left: 90%;
+    top: 87vh;
+    }
+    
     #main {
     border: outset $panelborder 1.8vh;
     background:url('/images/chalkboard2.jpg');
@@ -28,7 +39,7 @@ body {
     margin-top: 3vh;
     margin-bottom: 3vh;
     margin-right: 1.5%;
-    
+        
         #table_head {
             border-bottom: solid $splitcolor 2vh;
             height: auto;
@@ -71,6 +82,7 @@ body {
             padding: 10px;
             font-family: $post_it_font;
             box-shadow: 0 6px 6px -6px #777;
+            z-index: 2;
         }
         
         .pink_post_it{
@@ -182,6 +194,7 @@ body {
         .cat_note-9 {
             position:absolute;
             top: 5vh;
+            left: 20vh;
         }
         
         //Rotate titles
