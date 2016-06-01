@@ -17,19 +17,7 @@ $( document ).ready(function() {
     $lightblue = "#59A7BA";
     $green = "#789D33";
     
-    /*
-    
     //Add event handlers to categories
-    for (i = 1; i <= 9; i++) { 
-      
-      $( ".cat_box-"+i ).click(function() {
-        //Append div
-        $("#ice_box_content").append("<div class='post_it'></div>");
-        $(".post_it").draggable();
-        //$(".post_it").css("background-color", $yellow);
-      });
-    }
-    */
     
     //Incrementing id for each post it
     $count = 1;
@@ -64,5 +52,12 @@ $( document ).ready(function() {
         $(".lightblue_post_it").draggable();
         $("#post_it_"+$count).animate({left: '23.5%', top: '60%'});
         $count++;
+    });
+    
+    //Collisions to remove elements
+     $( "#trash" ).droppable({
+      drop: function( event, ui ) {
+        $(ui.draggable).remove();
+      }
     });
 });
