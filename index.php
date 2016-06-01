@@ -16,6 +16,8 @@
     </head>
     
     <body>
+    	
+    	<img src="images/trash.png" id="trash" alt="trash" title="Drag post-it note on me!">
 		
 		<!-- Main container -->
 		<div id="main">
@@ -23,6 +25,7 @@
 			<!-- Panel headers -->
 			<div id="table_head" class="row">
 				
+				<!--<div class="col-xs-2"><div id="trash_div"><img id="trash" src="images/trash.png" alt="trash" />TRASH</div></div>-->
 				<div class="col-xs-2"></div>
 				<div class="col-xs-2"><div class="title_box-1 title_shortened paper ">ICE BOX</div></div>
 				<div class="col-xs-2"><div class="title_box-2 emergency">EMERGENCY</div></div>
